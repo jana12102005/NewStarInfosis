@@ -1,0 +1,114 @@
+/* ==========================================================================
+   NEW STAR INFOSIS — BYTEWAX RESPONSIVE DESIGN
+   Clean breakpoints for mobile, tablet, and desktop
+   ========================================================================== */
+
+/* Laptops & Tablets (max-width: 991px) */
+@media (max-width: 991px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .editorial-row,
+  .editorial-row.reverse {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    direction: ltr !important;
+  }
+
+  .editorial-media-card img {
+    height: 280px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .stat-item:nth-child(2)::after {
+    display: none;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xxl);
+  }
+}
+
+/* Mobile Devices (max-width: 767px) */
+@media (max-width: 767px) {
+  :root {
+    --header-height: 64px;
+    --space-section: 60px;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+  }
+
+  .install-pill {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 13px;
+    overflow-x: auto;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .stat-item::after {
+    display: none !important;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}

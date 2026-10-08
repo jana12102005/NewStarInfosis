@@ -1,0 +1,509 @@
+/* ==========================================================================
+   NEW STAR INFOSIS — OPENING 100% ANIMATED PRELOADER
+   Developer-grade high-voltage loading sequence with animated 0-100% counter,
+   orbital particle radar, tech metadata readouts, and cinematic split curtain.
+   ========================================================================== */
+
+/* Prevent scroll while preloader is active */
+body.preloader-active {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+/* Base Preloader Overlay Container */
+.preloader-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background-color: #08090C;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  overflow: hidden;
+  user-select: none;
+  font-family: var(--font-main, 'Inter', -apple-system, sans-serif);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Dual Shutter Curtain Elements for Dramatic Exit Wipe */
+.preloader-shutter {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #08090C;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.75s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform;
+}
+
+.preloader-shutter.shutter-top {
+  top: 0;
+  transform-origin: top;
+  border-bottom: 1px solid rgba(250, 185, 15, 0.2);
+}
+
+.preloader-shutter.shutter-bottom {
+  bottom: 0;
+  transform-origin: bottom;
+  border-top: 1px solid rgba(250, 185, 15, 0.2);
+}
+
+/* Background Atmosphere */
+.preloader-bg-glow {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 45%, rgba(250, 185, 15, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(88, 101, 242, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(21, 245, 186, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 2;
+  animation: preloaderPulseGlow 4s ease-in-out infinite alternate;
+}
+
+.preloader-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+/* Top & Bottom Status HUD Bars */
+.preloader-status-bar {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.preloader-status-bar .status-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.preloader-status-bar .status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FAB90F;
+  box-shadow: 0 0 10px #FAB90F, 0 0 20px rgba(250, 185, 15, 0.6);
+  animation: preloaderBlink 1.2s infinite;
+}
+
+.preloader-status-bar .text-accent {
+  color: #FAB90F;
+}
+
+/* Skip / Bypass Button */
+.preloader-skip-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 11px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.preloader-skip-btn:hover {
+  background: rgba(250, 185, 15, 0.15);
+  border-color: #FAB90F;
+  color: #FAB90F;
+  box-shadow: 0 0 15px rgba(250, 185, 15, 0.3);
+}
+
+.preloader-skip-btn .skip-key {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+/* Central Stage Content */
+.preloader-center-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 680px;
+  margin: auto 0;
+}
+
+/* Emblem & Orbit Rings */
+.preloader-emblem-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emblem-orbital-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.emblem-orbital-ring.ring-outer {
+  border: 1px solid rgba(250, 185, 15, 0.25);
+  border-top-color: #FAB90F;
+  border-right-color: #15F5BA;
+  animation: preloaderSpin 6s linear infinite;
+  box-shadow: 0 0 20px rgba(250, 185, 15, 0.15);
+}
+
+.emblem-orbital-ring.ring-dashed {
+  inset: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-left-color: #FAB90F;
+  animation: preloaderSpinReverse 8s linear infinite;
+}
+
+.emblem-orbital-ring.ring-pulse {
+  inset: 22px;
+  border: 1px solid rgba(250, 185, 15, 0.15);
+  animation: preloaderRingPulse 2.5s ease-in-out infinite;
+}
+
+.emblem-logo-container {
+  width: 74px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 16px rgba(250, 185, 15, 0.4));
+  animation: preloaderFloat 3s ease-in-out infinite alternate;
+}
+
+.emblem-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Brand Title & Subtitle */
+.preloader-brand-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.preloader-brand-main {
+  font-family: var(--font-main, 'Inter', sans-serif);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.preloader-brand-tag {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: #FAB90F;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* Huge 0% - 100% Counter Display */
+.preloader-counter-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 24px;
+  line-height: 1;
+}
+
+.preloader-counter-value {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: clamp(4.5rem, 12vw, 7.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #FFFFFF 40%, rgba(255, 255, 255, 0.65) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 35px rgba(250, 185, 15, 0.35);
+  transition: transform 0.1s ease;
+  min-width: 2.2ch;
+  text-align: right;
+}
+
+.preloader-counter-percent {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  color: #FAB90F;
+  text-shadow: 0 0 20px rgba(250, 185, 15, 0.6);
+  margin-left: 2px;
+  position: relative;
+  top: -8px;
+}
+
+/* Progress Box & Dual-Layer High-Voltage Bar */
+.preloader-progress-box {
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 20px;
+}
+
+.preloader-progress-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.preloader-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #15F5BA 0%, #FAB90F 60%, #FFFFFF 100%);
+  position: relative;
+  box-shadow: 0 0 16px rgba(250, 185, 15, 0.8), 0 0 32px rgba(250, 185, 15, 0.4);
+  transition: width 0.08s cubic-bezier(0.1, 0.9, 0.2, 1);
+  will-change: width;
+}
+
+.preloader-progress-glow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #FAB90F;
+  box-shadow: 0 0 18px 4px #FAB90F, 0 0 30px 6px rgba(255, 255, 255, 0.8);
+  filter: blur(1px);
+}
+
+.preloader-progress-spark {
+  position: absolute;
+  right: -2px;
+  top: -4px;
+  bottom: -4px;
+  width: 6px;
+  background: #FFFFFF;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #FFFFFF;
+  animation: preloaderSparkFlicker 0.4s infinite alternate;
+}
+
+/* Tick Labels */
+.preloader-progress-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Console Ticker Text */
+.preloader-console {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.8);
+  min-height: 24px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  max-width: 90%;
+}
+
+.preloader-console .console-prompt {
+  color: #FAB90F;
+  font-weight: 700;
+}
+
+.preloader-console .console-text {
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Keyframes */
+@keyframes preloaderSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes preloaderSpinReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes preloaderRingPulse {
+  0%, 100% {
+    transform: scale(0.92);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.8;
+  }
+}
+
+@keyframes preloaderFloat {
+  0% { transform: translateY(-4px) scale(0.98); }
+  100% { transform: translateY(4px) scale(1.02); }
+}
+
+@keyframes preloaderPulseGlow {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+@keyframes preloaderBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes preloaderSparkFlicker {
+  0% { opacity: 0.6; transform: scaleY(0.8); }
+  100% { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* Exit Sequence Animations */
+.preloader-overlay.finishing .preloader-center-content {
+  animation: preloaderFinishedPop 0.4s ease forwards;
+}
+
+@keyframes preloaderFinishedPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1.02); opacity: 0.9; }
+}
+
+.preloader-overlay.exit {
+  pointer-events: none;
+}
+
+.preloader-overlay.exit .preloader-center-content,
+.preloader-overlay.exit .preloader-status-bar,
+.preloader-overlay.exit .preloader-bg-glow,
+.preloader-overlay.exit .preloader-grid-pattern {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.preloader-overlay.exit .shutter-top {
+  transform: translateY(-100%);
+}
+
+.preloader-overlay.exit .shutter-bottom {
+  transform: translateY(100%);
+}
+
+.preloader-overlay.dismissed {
+  opacity: 0;
+  visibility: hidden;
+  display: none !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .preloader-overlay {
+    padding: 16px 20px;
+  }
+  .preloader-emblem-wrapper {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 16px;
+  }
+  .emblem-logo-container {
+    width: 58px;
+    height: 58px;
+  }
+  .preloader-brand-main {
+    font-size: 16px;
+  }
+  .preloader-brand-tag {
+    font-size: 9px;
+  }
+  .preloader-counter-value {
+    font-size: 4rem;
+  }
+  .preloader-counter-percent {
+    font-size: 1.8rem;
+    top: -4px;
+  }
+  .preloader-console {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .preloader-overlay {
+    transition: opacity 0.2s ease !important;
+  }
+  .emblem-orbital-ring,
+  .emblem-logo-container,
+  .preloader-bg-glow {
+    animation: none !important;
+  }
+  .preloader-progress-fill {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Star Infosis — Modern Enterprise Tech, AI & Bioinformatics</title>
+  <meta name="description"
+    content="New Star Infosis — Clean developer-grade enterprise software, AI & Machine Learning, Bioinformatics, and Distributed Cloud Computing." />
+  <meta name="keywords"
+    content="New Star Infosis, Bytewax Design, AI Machine Learning, Bioinformatics, Web Development, IoT Solutions, IT Consulting" />
+  <meta property="og:title" content="New Star Infosis — Modern Enterprise Tech" />
+  <meta property="og:description"
+    content="Developer-grade AI, computational genomics, and distributed cloud software." />
+  <meta property="og:image" content="assets/logo/logo.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo/logo-mark.svg" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/preloader.css" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Preloader Script -->
+  <script src="js/preloader.js"></script>
+</head>
+
+<body class="preloader-active">
+
+  <!-- Opening Time Loading (0% - 100% Animated Preloader) -->
+  <div id="site-preloader" class="preloader-overlay" aria-live="polite" role="status" aria-label="Loading New Star Infosis">
+    <!-- Background Atmosphere -->
+    <div class="preloader-bg-glow"></div>
+    <div class="preloader-grid-pattern"></div>
+    
+    <!-- Top HUD Status Bar -->
+    <div class="preloader-status-bar preloader-bar-top">
+      <div class="status-item"><span class="status-dot"></span>SYS_INITIALIZE // NSI-CORE-v2.6</div>
+      <div class="status-item d-none d-md-flex">LATENCY: <span id="preloader-ping">14ms</span></div>
+      <div class="status-item d-none d-sm-flex">CLUSTER: <span class="text-accent">nsi-prod-01</span></div>
+    </div>
+
+    <!-- Central Stage -->
+    <div class="preloader-center-content">
+      <!-- Animated Rotating Holographic Emblem -->
+      <div class="preloader-emblem-wrapper">
+        <div class="emblem-orbital-ring ring-outer"></div>
+        <div class="emblem-orbital-ring ring-dashed"></div>
+        <div class="emblem-orbital-ring ring-pulse"></div>
+        <div class="emblem-logo-container">
+          <img src="assets/logo/logo-mark.svg" alt="New Star Infosis Emblem" class="emblem-logo-img" />
+        </div>
+      </div>
+
+      <!-- Brand Badge -->
+      <div class="preloader-brand-title">
+        <span class="preloader-brand-main">NEW STAR INFOSIS</span>
+        <span class="preloader-brand-tag">HIGH-PERFORMANCE COMPUTING & AI</span>
+      </div>
+
+      <!-- Big Animated 0% - 100% Counter -->
+      <div class="preloader-counter-container">
+        <div class="preloader-counter-value" id="preloader-number">0</div>
+        <span class="preloader-counter-percent">%</span>
+      </div>
+
+      <!-- High-Voltage Progress Gauge Bar -->
+      <div class="preloader-progress-box">
+        <div class="preloader-progress-track">
+          <div class="preloader-progress-fill" id="preloader-fill" style="width: 0%;">
+            <span class="preloader-progress-glow"></span>
+            <span class="preloader-progress-spark"></span>
+          </div>
+        </div>
+        <!-- Milestone Ticks -->
+        <div class="preloader-progress-ticks">
+          <span>00</span>
+          <span>25</span>
+          <span>50</span>
+          <span>75</span>
+          <span>100</span>
+        </div>
+      </div>
+
+      <!-- Monospace Status Console Ticker -->
+      <div class="preloader-console">
+        <span class="console-prompt">&gt;</span>
+        <span class="console-text" id="preloader-status-text">INITIALIZING NSI CLOUD CORE...</span>
+        <span class="cursor-blink">_</span>
+      </div>
+    </div>
+
+    <!-- Bottom Shutter & Skip Bar -->
+    <div class="preloader-status-bar preloader-bar-bottom">
+      <div class="status-item">TLS 1.3 256-BIT ENCRYPTION</div>
+      <button id="preloader-skip-btn" class="preloader-skip-btn" aria-label="Skip Loading Screen">
+        <span>PRESS ESC OR CLICK TO SKIP</span>
+        <span class="skip-key">ESC</span>
+      </button>
+    </div>
+
+    <!-- Dual Curtain Shutter (Splits Top & Bottom when done) -->
+    <div class="preloader-shutter shutter-top"></div>
+    <div class="preloader-shutter shutter-bottom"></div>
+  </div>
+
+  <!-- Subtle Developer Grid Lines Background -->
+  <div class="bg-grid-lines" aria-hidden="true"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Top Navigation (Bytewax White Canvas + Hairline Border) -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="New Star Infosis Home">
+        <img src="assets/logo/logo.png" alt="New Star Infosis Emblem" />
+        <div class="brand-text">
+          <span class="brand-title">NEW STAR</span>
+          <span class="brand-subtitle">INFOSIS</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Mode" title="Toggle Developer Mode">
+          <i data-lucide="moon"></i>
+        </button>
+        <a href="https://www.linkedin.com/company/new-star-infosis/posts/?feedView=all" target="_blank"
+          rel="noopener noreferrer" class="social-icon-btn d-none d-md-flex" title="LinkedIn" aria-label="LinkedIn"
+          style="color: #0A66C2;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect width="4" height="12" x="2" y="9"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/new_star_infosis?stkn=MXdnd203a3Vubmh5ZA==" target="_blank"
+          rel="noopener noreferrer" class="social-icon-btn d-none d-md-flex" title="Instagram" aria-label="Instagram"
+          style="color: #E1306C;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="contact.html" class="btn btn-dark btn-sm d-none d-md-inline-flex">
+          <span>Get in Touch</span>
+          <i data-lucide="arrow-right"></i>
+        </a>
+        <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <a href="contact.html" class="btn btn-accent" style="width: 100%;">
+        <i data-lucide="mail"></i> Contact Us
+      </a>
+      <a href="https://wa.me/919384303044" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"
+        style="width: 100%;">
+        <i data-lucide="message-circle"></i> WhatsApp (9384303044)
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Hero Section (Bytewax 72px Display + Two-Tone Split) -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-centered reveal">
+          <div style="margin-bottom: 20px;">
+            <span class="section-tag tag-accent">
+              <i data-lucide="zap"></i> Founded in 2024 · Enterprise Technology & Research
+            </span>
+          </div>
+
+          <!-- Bytewax 72px Headline with Yellow Accent Second Line -->
+          <h1 class="hero-headline">
+            Distributed intelligence, <br />
+            <span class="text-accent">as powerful as code.</span>
+          </h1>
+
+          <p class="hero-lead">
+            New Star Infosis engineers developer-first software systems, autonomous AI pipelines, genomic bioinformatics
+            platforms, and real-time IoT architectures designed for zero-latency scale.
+          </p>
+
+
+          <!-- Two-Tone CTA Button Pairing (Yellow Accent + Black Button) -->
+          <div class="hero-actions">
+            <a href="services.html" class="btn btn-accent btn-lg">
+              <span>Read the Services</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
+            <a href="projects.html" class="btn btn-dark btn-lg">
+              <span>View Projects</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Hero Media Mockup with Hairline Border -->
+          <div class="hero-media-wrapper reveal reveal-delay-1">
+            <img src="assets/images/hero-tech.jpg" alt="New Star Infosis Enterprise Technology Architecture" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Strip (Clean Hairline Borders) -->
+    <section class="stats-strip" aria-label="Company Statistics">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <div class="stat-number" data-count="100+">
+              <span class="counter-val">0</span><span class="plus">+</span>
+            </div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-1">
+            <div class="stat-number" data-count="99">
+              <span class="counter-val">0</span><span class="plus">%</span>
+            </div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-2">
+            <div class="stat-number" data-count="120+">
+              <span class="counter-val">0</span><span class="plus">+</span>
+            </div>
+            <div class="stat-label">Engineers & Researchers Trained</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-3">
+            <div class="stat-number" data-count="2024">
+              <span class="counter-val">0</span>
+            </div>
+            <div class="stat-label">Year Founded</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee Band (Bytewax Style: Signature Accent Yellow Strip) -->
+    <div class="marquee-band" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">ARTIFICIAL INTELLIGENCE <span class="marquee-star">✦</span></span>
+        <span class="marquee-item">BIOINFORMATICS & GENOMICS <span class="marquee-star">✦</span></span>
+        <span class="marquee-item">DISTRIBUTED CLOUD SYSTEMS <span class="marquee-star">✦</span></span>
+        <span class="marquee-item">IOT & REAL-TIME TELEMETRY <span class="marquee-star">✦</span></span>
+        <span class="marquee-item">COMPUTATIONAL ALGORITHMS <span class="marquee-star">✦</span></span>
+        <span class="marquee-item">UI/UX SYSTEMS <span class="marquee-star">✦</span></span>
+        <!-- Duplicate for continuous ticker -->
+        <span class="marquee-item">ARTIFICIAL INTELLIGENCE <span class="marquee-star">✦</span></span>
+        <span class="marquee-item">BIOINFORMATICS & GENOMICS <span class="marquee-star">✦</span></span>
+        <span class="marquee-item">DISTRIBUTED CLOUD SYSTEMS <span class="marquee-star">✦</span></span>
+        <span class="marquee-item">IOT & REAL-TIME TELEMETRY <span class="marquee-star">✦</span></span>
+        <span class="marquee-item">COMPUTATIONAL ALGORITHMS <span class="marquee-star">✦</span></span>
+        <span class="marquee-item">UI/UX SYSTEMS <span class="marquee-star">✦</span></span>
+      </div>
+    </div>
+
+    <!-- Bytewax 3-Up Feature Cards Row (Hairline Borders, 12px Radius, Zero Shadow) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Core Architecture</span>
+          <h2>WHAT WE ENGINEER</h2>
+          <p class="lead">
+            Production-grade capabilities engineered for technical teams, biotechnology institutes, and high-growth
+            enterprises.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Card 1: AI & ML -->
+          <div class="feature-card reveal">
+            <div class="feature-icon-wrapper">
+              <i data-lucide="cpu"></i>
+            </div>
+            <h3 class="card-title">AI & Machine Learning</h3>
+            <p class="card-description">
+              Autonomous multi-agent loops, custom fine-tuned transformer models, computer vision systems, and
+              low-latency tensor inference pipelines.
+            </p>
+            <a href="services.html#ai-ml" class="feature-card-link">
+              EXPLORE AI ARCHITECTURE <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Card 2: Bioinformatics -->
+          <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon-wrapper">
+              <i data-lucide="dna"></i>
+            </div>
+            <h3 class="card-title">Bioinformatics & Genomics</h3>
+            <p class="card-description">
+              High-throughput next-generation sequence analysis, AlphaFold 3D protein structure modeling, and in silico
+              virtual drug screening algorithms.
+            </p>
+            <a href="services.html#bioinformatics" class="feature-card-link">
+              READ THE SCIENCE <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Card 3: Cloud & Web Platforms -->
+          <div class="feature-card reveal reveal-delay-2">
+            <div class="feature-icon-wrapper">
+              <i data-lucide="globe"></i>
+            </div>
+            <h3 class="card-title">Web & Cloud Platforms</h3>
+            <p class="card-description">
+              Blazingly fast, accessible web applications engineered with semantic standards, microsecond WebSockets,
+              and 100/100 Core Web Vitals.
+            </p>
+            <a href="services.html#web-dev" class="feature-card-link">
+              CHECK OUR WEB STACK <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="services.html" class="btn btn-outline btn-lg">
+            <span>View All 9 Services & Capabilities</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alternating Editorial Section: AI & Deep Learning -->
+    <section class="section"
+      style="background: var(--color-canvas-subtle); border-top: 1px solid var(--color-surface); border-bottom: 1px solid var(--color-surface);">
+      <div class="container">
+        <div class="editorial-row">
+          <div class="editorial-content reveal">
+            <span class="section-tag tag-accent">01.Cognitive Computing</span>
+            <h2>ENTERPRISE AI BUILT FOR REAL WORKLOADS</h2>
+            <p>
+              From custom agentic decision workflows to high-performance computer vision networks, New Star Infosis
+              builds deterministic, production-tested AI pipelines that scale seamlessly.
+            </p>
+            <div class="feature-checklist">
+              <div class="checklist-item">
+                <div class="checklist-icon"><i data-lucide="check"></i></div>
+                <span><strong>Autonomous Reasoning:</strong> Multi-agent tool calling with structured JSON
+                  outputs.</span>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i data-lucide="check"></i></div>
+                <span><strong>Sub-Second Inference:</strong> TensorRT model quantization and low-power edge
+                  execution.</span>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i data-lucide="check"></i></div>
+                <span><strong>Deterministic Auditing:</strong> Strict compliance, logging, and evaluation
+                  benchmarks.</span>
+              </div>
+            </div>
+            <div class="btn-group">
+              <a href="services.html#ai-ml" class="btn btn-dark">
+                <span>Explore AI Solutions</span>
+                <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="editorial-media reveal reveal-delay-1">
+            <div class="editorial-media-card">
+              <img src="assets/images/ai-ml.jpg" alt="Artificial Intelligence Deep Learning Visualization"
+                loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alternating Editorial Section: Bioinformatics -->
+    <section class="section">
+      <div class="container">
+        <div class="editorial-row reverse">
+          <div class="editorial-content reveal">
+            <span class="section-tag">02.Life Sciences Computing</span>
+            <h2>COMPUTATIONAL GENOMICS & STRUCTURAL BIOLOGY</h2>
+            <p>
+              We bridge computational science and molecular biology. Our researchers build high-throughput tools for
+              variant pathogenicity prediction, 3D macromolecular protein modeling, and multi-omic data harmonization.
+            </p>
+            <div class="feature-checklist">
+              <div class="checklist-item">
+                <div class="checklist-icon"><i data-lucide="check"></i></div>
+                <span><strong>AlphaFold-Grounded Analysis:</strong> Structural superposition and pLDDT confidence
+                  scoring.</span>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i data-lucide="check"></i></div>
+                <span><strong>Reproducible Workflows:</strong> Nextflow, Bioconda, and Dockerized bioinformatic
+                  suites.</span>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i data-lucide="check"></i></div>
+                <span><strong>Virtual Screening:</strong> High-affinity molecular docking algorithms for drug
+                  discovery.</span>
+              </div>
+            </div>
+            <div class="btn-group">
+              <a href="services.html#bioinformatics" class="btn btn-dark">
+                <span>Bioinformatics Deep Dive</span>
+                <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="editorial-media reveal reveal-delay-1">
+            <div class="editorial-media-card">
+              <img src="assets/images/bioinformatics.jpg" alt="Bioinformatics and DNA Structural Simulation"
+                loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Teaser -->
+    <section class="section"
+      style="background: var(--color-canvas-subtle); border-top: 1px solid var(--color-surface); border-bottom: 1px solid var(--color-surface);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag tag-accent">Portfolio Showcase</span>
+          <h2>VERIFIED INNOVATIONS</h2>
+          <p class="lead">
+            Explore a selection of our recent breakthroughs across bioinformatics pipelines, AI agents, and IoT
+            networks.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Featured 1 -->
+          <div class="project-card reveal">
+            <div class="project-thumbnail">
+              <img src="assets/images/bioinformatics.jpg" alt="GenomiX Variant Predictor" loading="lazy" />
+              <span class="project-category-tag">Bioinformatics</span>
+            </div>
+            <div class="project-body">
+              <h3 class="card-title">GenomiX: Deep Learning Variant Predictor</h3>
+              <p class="card-description">
+                High-throughput pipeline classifying functional pathogenicity of non-coding human genetic mutations.
+              </p>
+              <div class="badge-group">
+                <span class="tech-badge badge-accent">PyTorch</span>
+                <span class="tech-badge">Nextflow</span>
+                <span class="tech-badge">FastAPI</span>
+              </div>
+              <div class="project-footer">
+                <a href="projects.html" class="feature-card-link">READ CASE STUDY <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured 2 -->
+          <div class="project-card reveal reveal-delay-1">
+            <div class="project-thumbnail">
+              <img src="assets/images/ai-ml.jpg" alt="Hyperion Agentic Core" loading="lazy" />
+              <span class="project-category-tag">AI & Machine Learning</span>
+            </div>
+            <div class="project-body">
+              <h3 class="card-title">Hyperion: Enterprise Agentic Neural Core</h3>
+              <p class="card-description">
+                Autonomous multi-agent orchestration framework executing high-stakes tool calls with vector memory.
+              </p>
+              <div class="badge-group">
+                <span class="tech-badge badge-accent">Python</span>
+                <span class="tech-badge">LangChain</span>
+                <span class="tech-badge">pgvector</span>
+              </div>
+              <div class="project-footer">
+                <a href="projects.html" class="feature-card-link">READ CASE STUDY <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured 3 -->
+          <div class="project-card reveal reveal-delay-2">
+            <div class="project-thumbnail">
+              <img src="assets/images/iot-cloud.jpg" alt="OmniGrid Telemetry Mesh" loading="lazy" />
+              <span class="project-category-tag">IoT & Cloud</span>
+            </div>
+            <div class="project-body">
+              <h3 class="card-title">OmniGrid: Industrial IoT Telemetry System</h3>
+              <p class="card-description">
+                Real-time edge telemetry and analytics grid ingesting 500k sensor events/sec with automated anomaly
+                flags.
+              </p>
+              <div class="badge-group">
+                <span class="tech-badge badge-accent">MQTT</span>
+                <span class="tech-badge">Go</span>
+                <span class="tech-badge">TimescaleDB</span>
+              </div>
+              <div class="project-footer">
+                <a href="projects.html" class="feature-card-link">READ CASE STUDY <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="projects.html" class="btn btn-dark btn-lg">
+            <span>Explore Complete Project Gallery</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pre-Footer CTA Band (Bytewax Clean Two-Tone Closure) -->
+    <section class="cta-band">
+      <div class="container">
+        <span class="section-tag tag-accent">Start Building</span>
+        <h2 class="cta-title">
+          Ready to accelerate your tech vision?
+        </h2>
+        <p class="lead" style="max-width: 640px; margin: 0 auto 32px;">
+          Whether you need a custom AI pipeline, a high-throughput bioinformatics application, or an enterprise cloud
+          web suite, our engineers are ready.
+        </p>
+        <div class="hero-actions" style="margin-bottom: 0;">
+          <a href="contact.html" class="btn btn-accent btn-lg">
+            <span>Schedule Discovery Call</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="https://wa.me/919384303044" target="_blank" rel="noopener noreferrer"
+            class="btn btn-whatsapp btn-lg">
+            <i data-lucide="message-circle"></i>
+            <span>Chat on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Multi-Column Site Footer (Bytewax Clean White Canvas) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 12px;">
+            <img src="assets/logo/logo.png" alt="New Star Infosis Logo" />
+            <div class="brand-text">
+              <span class="brand-title">NEW STAR</span>
+              <span class="brand-subtitle">INFOSIS</span>
+            </div>
+          </a>
+          <p>
+            Founded in 2024. Next-generation technology company driving breakthroughs across Artificial Intelligence,
+            Bioinformatics, IoT, and Cloud Computing.
+          </p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/new-star-infosis/posts/?feedView=all" target="_blank"
+              rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn" style="color: #0A66C2;"
+              title="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect width="4" height="12" x="2" y="9"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/new_star_infosis?stkn=MXdnd203a3Vubmh5ZA==" target="_blank"
+              rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram" style="color: #E1306C;"
+              title="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://wa.me/919384303044" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="WhatsApp" style="color: #25D366;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"></path>
+                <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="projects.html" class="footer-link">Projects</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Core Services -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#ai-ml" class="footer-link">AI & Machine Learning</a></li>
+            <li><a href="services.html#bioinformatics" class="footer-link">Bioinformatics</a></li>
+            <li><a href="services.html#web-dev" class="footer-link">Web Development</a></li>
+            <li><a href="services.html#mobile-dev" class="footer-link">Mobile Apps</a></li>
+            <li><a href="services.html#iot-solutions" class="footer-link">IoT Solutions</a></li>
+            <li><a href="services.html#ui-ux" class="footer-link">UI/UX Design</a></li>
+            <li><a href="services.html#consulting" class="footer-link">IT Consulting</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Headquarters</h4>
+          <div class="contact-meta-item">
+            <i data-lucide="phone"></i>
+            <div>
+              <strong style="color: var(--color-ink-strong); display: block;">Direct Contact</strong>
+              <a href="tel:9384303044" style="color: var(--color-ink-strong); font-weight: 600;">+91 9384303044</a>
+            </div>
+          </div>
+          <div class="contact-meta-item">
+            <i data-lucide="mail"></i>
+            <div>
+              <strong style="color: var(--color-ink-strong); display: block;">Email Us</strong>
+              <a href="mailto:info@newstarinfosis.com" style="color: var(--color-muted);">info@newstarinfosis.com</a>
+            </div>
+          </div>
+          <div class="contact-meta-item">
+            <i data-lucide="map-pin"></i>
+            <div>
+              <strong style="color: var(--color-ink-strong); display: block;">Location</strong>
+              <span>Technology & R&D Hub, India</span>
+            </div>
+          </div>
+          <div style="margin-top: 14px;">
+            <a href="https://wa.me/919384303044" target="_blank" rel="noopener noreferrer"
+              class="btn btn-whatsapp btn-sm" style="width: 100%;">
+              <i data-lucide="message-circle"></i> WhatsApp Direct
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2024 - 2026 <strong>New Star Infosis</strong>. All Rights Reserved.
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="contact.html" style="color: var(--color-muted);">Privacy Policy</a>
+          <a href="contact.html" style="color: var(--color-muted);">Terms of Service</a>
+          <a href="contact.html" style="color: var(--color-muted);">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to Top" title="Back to Top">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+
+</html>

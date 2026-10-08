@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="markGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8CD9FF" />
+      <stop offset="35%" stop-color="#5865F2" />
+      <stop offset="70%" stop-color="#B377F3" />
+      <stop offset="100%" stop-color="#FF6AEF" />
+    </linearGradient>
+    <linearGradient id="markCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#15F5BA" />
+      <stop offset="100%" stop-color="#8CD9FF" />
+    </linearGradient>
+    <linearGradient id="markPink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B377F3" />
+      <stop offset="100%" stop-color="#FF6AEF" />
+    </linearGradient>
+    <filter id="markGlow">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g transform="translate(160, 140)">
+    <!-- Outer Rings -->
+    <circle r="105" fill="none" stroke="url(#markGrad)" stroke-width="4.5" opacity="0.85" filter="url(#markGlow)" />
+    
+    <!-- Wings -->
+    <g stroke="url(#markCyan)" stroke-width="4" stroke-linecap="round" opacity="0.85">
+      <line x1="-155" y1="-20" x2="-80" y2="-20" />
+      <line x1="-165" y1="-5" x2="-75" y2="-5" />
+      <line x1="-170" y1="10" x2="-72" y2="10" />
+      <line x1="-165" y1="25" x2="-75" y2="25" />
+      <line x1="-155" y1="40" x2="-80" y2="40" />
+    </g>
+    <g stroke="url(#markPink)" stroke-width="4" stroke-linecap="round" opacity="0.85">
+      <line x1="80" y1="-20" x2="155" y2="-20" />
+      <line x1="75" y1="-5" x2="165" y2="-5" />
+      <line x1="72" y1="10" x2="170" y2="10" />
+      <line x1="75" y1="25" x2="165" y2="25" />
+      <line x1="80" y1="40" x2="155" y2="40" />
+    </g>
+
+    <!-- Star -->
+    <polygon points="0,-105 30,-32 108,-25 48,28 67,105 0,62 -67,105 -48,28 -108,-25 -30,-32"
+             fill="#18173E" stroke="url(#markGrad)" stroke-width="9" stroke-linejoin="round" filter="url(#markGlow)" />
+             
+    <!-- Monitor Screen -->
+    <g transform="translate(0, 4)">
+      <rect x="-34" y="-28" width="68" height="46" rx="6" fill="#11102A" stroke="url(#markGrad)" stroke-width="4" />
+      <rect x="-28" y="-22" width="56" height="34" rx="3" fill="url(#markGrad)" opacity="0.3" />
+      <line x1="-20" y1="-10" x2="4" y2="-10" stroke="#15F5BA" stroke-width="2" stroke-linecap="round" />
+      <line x1="-20" y1="-2" x2="16" y2="-2" stroke="#8CD9FF" stroke-width="2" stroke-linecap="round" />
+      <line x1="-20" y1="6" x2="-4" y2="6" stroke="#FF6AEF" stroke-width="2" stroke-linecap="round" />
+      <path d="M -8,18 L -12,27 L 12,27 L 8,18 Z" fill="url(#markGrad)" />
+      <rect x="-18" y="27" width="36" height="4" rx="2" fill="#FFFFFF" />
+    </g>
+  </g>
+</svg>

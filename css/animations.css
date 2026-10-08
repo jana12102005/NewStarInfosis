@@ -1,0 +1,70 @@
+/* ==========================================================================
+   NEW STAR INFOSIS — BYTEWAX ANIMATIONS & MOTION
+   Clean, subtle transitions, marquee ticker, and IntersectionObserver reveals
+   ========================================================================== */
+
+/* 1. Full-Bleed Marquee Infinite Scroll */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* 2. Gentle Scroll Reveals */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+/* 3. Terminal Cursor Blink */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: cursorBlink 1s infinite;
+  display: inline-block;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* Respect User Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}

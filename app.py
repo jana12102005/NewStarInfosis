@@ -4,7 +4,8 @@ Production-ready Flask application for Vercel, Netlify, Render, and local execut
 """
 
 import os
-from flask import Flask, render_template, send_from_directory, request, jsonify
+from datetime import datetime, timezone
+from flask import Flask, render_template, send_from_directory, request, jsonify, Response
 
 app = Flask(
     __name__,
@@ -43,6 +44,52 @@ def projects():
 @app.route('/contact.html')
 def contact():
     return render_template('contact.html')
+
+# --- SEO / Indexing Routes ---
+
+@app.route('/sitemap.xml', methods=['GET'])
+def sitemap():
+    """Generate an XML sitemap for Google Search Console."""
+    base_url = "https://www.newstarinfosis.me"
+
+    pages = [
+        ("/", "1.0", "weekly"),
+        ("/about", "0.8", "monthly"),
+        ("/services", "0.8", "monthly"),
+        ("/projects", "0.8", "monthly"),
+        ("/contact", "0.7", "monthly"),
+    ]
+
+    lastmod = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    urls = []
+
+    for path, priority, changefreq in pages:
+        urls.append(
+            f"  <url>\n"
+            f"    <loc>{base_url}{path}</loc>\n"
+            f"    <lastmod>{lastmod}</lastmod>\n"
+            f"    <changefreq>{changefreq}</changefreq>\n"
+            f"    <priority>{priority}</priority>\n"
+            f"  </url>"
+        )
+
+    urls_joined = "\n".join(urls)
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{urls_joined}
+</urlset>"""
+
+    return Response(
+        xml,
+        mimetype="application/xml"
+    )
+
+@app.route('/robots.txt', methods=['GET'])
+def robots():
+    """Serve robots.txt for search engines."""
+    content = "User-agent: *\nAllow: /\n\nSitemap: https://www.newstarinfosis.me/sitemap.xml\n"
+    return Response(content, mimetype="text/plain")
+
 
 # --- API Endpoints ---
 
